@@ -10,11 +10,17 @@ export const fetchProducts = async () => {
     } catch (error) {
         throw error; // Rethrow to allow caller to handle
     }
-};
+}; 
 
 // Fetches details for a single product by its ID
 export const getProductDetails = async (id) => {
     // implement it using similar logic as fetchProducts function
+    try {
+        const response = await axios.get(`${BASE_URL}/${id}`);
+        return response.data;
+    } catch (error) {
+        throw error; // Rethrow to allow caller to handle
+    }
 };
 
 // Deletes a product by its ID
